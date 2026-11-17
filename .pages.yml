@@ -1,0 +1,150 @@
+# Pages CMS (https://app.pagescms.org) configuration.
+# Every save commits to this repository, and the deploy workflow rebuilds the site.
+
+media:
+  - name: images
+    label: Images
+    input: public/uploads/images
+    output: /uploads/images
+    categories: [image]
+  - name: pdfs
+    label: PDFs
+    input: public/uploads/pdfs
+    output: /uploads/pdfs
+    extensions: [pdf]
+
+content:
+  - name: site
+    label: Site Settings & 3D Sphere Color
+    type: file
+    path: src/content/site-settings.json
+    format: json
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: email
+        label: Contact email
+        type: string
+        required: true
+      - name: heroHeadline
+        label: Hero Headline
+        description: One line of the headline per line of text.
+        type: text
+        required: true
+      - name: heroStatement
+        label: Hero positioning statement
+        type: text
+      - name: bio
+        label: Bio
+        description: Shown in the About section. Leave a blank line between paragraphs.
+        type: text
+      - name: sphere
+        label: 3D Sphere Colors
+        type: object
+        fields:
+          - name: tint
+            label: 3D Sphere Hex Color
+            description: 'Six-digit hex code, for example #a9c1ff. Preview colors with the swatch pill on the live site, then paste the hex here.'
+            type: string
+            required: true
+            pattern:
+              regex: '^#[0-9a-fA-F]{6}$'
+              message: 'Use a six-digit hex code such as #a9c1ff.'
+          - name: glow
+            label: Edge glow hex color
+            type: string
+            pattern:
+              regex: '^#[0-9a-fA-F]{6}$'
+              message: 'Use a six-digit hex code such as #7c8cff.'
+          - name: lightA
+            label: Warm light hex color
+            type: string
+            pattern:
+              regex: '^#[0-9a-fA-F]{6}$'
+              message: 'Use a six-digit hex code such as #ffc4a8.'
+          - name: lightB
+            label: Cool light hex color
+            type: string
+            pattern:
+              regex: '^#[0-9a-fA-F]{6}$'
+              message: 'Use a six-digit hex code such as #b5f0e0.'
+      - name: showColorTester
+        label: Show the color tester pill on the live site
+        type: boolean
+      - name: resume
+        label: Resume PDF
+        description: Optional. The resume buttons stay hidden until a file is chosen.
+        type: file
+        options:
+          media: pdfs
+          extensions: [pdf]
+      - name: socials
+        label: Social Media Links
+        description: A link appears on the site once it has a URL.
+        type: object
+        list: true
+        fields:
+          - name: platform
+            label: Platform
+            type: string
+          - name: handle
+            label: Handle
+            type: string
+          - name: url
+            label: URL
+            type: string
+
+  - name: projects
+    label: Case Studies
+    type: file
+    path: src/content/projects.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: client
+        label: Client
+        type: string
+      - name: role
+        label: Role
+        type: string
+      - name: year
+        label: Year
+        type: string
+      - name: metric
+        label: Featured Metric
+        type: string
+      - name: cover
+        label: Cover Image
+        type: image
+        options:
+          media: images
+      - name: gallery
+        label: Gallery Images
+        type: image
+        list: true
+        options:
+          media: images
+      - name: pdf
+        label: Case Study PDF
+        type: file
+        options:
+          media: pdfs
+          extensions: [pdf]
+      - name: challenge
+        label: Challenge
+        type: text
+      - name: insight
+        label: Strategic Insight
+        type: text
+      - name: execution
+        label: Execution
+        type: text
+      - name: results
+        label: Results
+        type: text

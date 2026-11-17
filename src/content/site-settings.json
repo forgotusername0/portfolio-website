@@ -1,0 +1,19 @@
+{
+  "name": "Aidan Lusk",
+  "email": "aidan.lusk2002@gmail.com",
+  "heroHeadline": "Brands kept\non strategy.\nProjects kept\non time.",
+  "heroStatement": "Aidan Lusk is an Advertising & Brand Management graduate looking for Account Manager, Account Supervisor, Project Manager, and Brand Manager roles.",
+  "bio": "I studied Advertising & Brand Management, and the projects here cover most of an account team's week: consumer interviews, competitive research, brand voice, copy, art direction, and digital prototypes.\n\nI like the seat in the middle. The person who knows what the client needs, what the creative team is making, and when it is due. Having done the strategy and the making myself, I can brief both honestly.\n\nI am looking for an Account Manager, Account Supervisor, Project Manager, or Brand Manager role.",
+  "sphere": {
+    "tint": "#a9c1ff",
+    "glow": "#7c8cff",
+    "lightA": "#ffc4a8",
+    "lightB": "#b5f0e0"
+  },
+  "showColorTester": true,
+  "resume": "",
+  "socials": [
+    { "platform": "LinkedIn", "handle": "", "url": "" },
+    { "platform": "Instagram", "handle": "", "url": "" }
+  ]
+}
