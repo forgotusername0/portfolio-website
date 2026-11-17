@@ -10,7 +10,12 @@
 }
 
 html {
-  background: var(--color-paper);
+  --accent: #a9c1ff; /* overwritten from site-settings.json at runtime */
+  background-color: var(--color-paper);
+  background-image:
+    radial-gradient(60rem 40rem at 88% -8%, color-mix(in srgb, var(--accent) 26%, transparent), transparent),
+    radial-gradient(48rem 38rem at -8% 62%, color-mix(in srgb, var(--accent) 14%, transparent), transparent);
+  background-attachment: fixed;
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -95,7 +100,7 @@ section[id] {
     background: rgb(255 255 255 / 0.85);
   }
 
-  /* The one orchestrated moment: headline lines rise in turn as the sphere swells in. */
+  /* The one orchestrated moment: headline lines rise in turn on load. */
   .rise {
     animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
     animation-delay: calc(var(--i) * 90ms + 150ms);
@@ -153,6 +158,45 @@ section[id] {
   .drawer[open]::backdrop {
     background: rgb(20 26 43 / 0);
   }
+}
+
+/* Custom cursor, desktop mouse only (Cursor.tsx adds .has-cursor). The layer is a popover so it stays above modal dialogs. */
+.has-cursor,
+.has-cursor * {
+  cursor: none !important;
+}
+.cursor-layer {
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100vw;
+  height: 100vh;
+  background: none;
+  overflow: visible;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 999px;
+  pointer-events: none;
+  will-change: transform;
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-ink);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.75);
+}
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid;
 }
 
 /* Native colour input drawn as a round swatch. */

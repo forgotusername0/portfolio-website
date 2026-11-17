@@ -3,45 +3,38 @@
     "title": "Aidan Lusk | Account, Brand & Project Management",
     "description": "Portfolio of Aidan Lusk, an Advertising & Brand Management graduate looking for Account Manager, Account Supervisor, Project Manager, and Brand Manager roles."
   },
-
   "resumeLabel": "Download resume",
-
   "nav": [
-    { "label": "Work", "href": "#work" },
-    { "label": "Approach", "href": "#approach" },
-    { "label": "About", "href": "#about" },
-    { "label": "Contact", "href": "#contact" }
-  ],
-
-  "sphere": {
-    "colorLabels": {
-      "tint": "Sphere tint",
-      "glow": "Edge glow",
-      "lightA": "Warm light",
-      "lightB": "Cool light"
+    {
+      "label": "Work",
+      "href": "#work"
     },
-    "swatches": ["#a9c1ff", "#c9b8ff", "#ffb9a3", "#a8e6cf", "#ffd98a", "#f4a6c8", "#8fd3f4", "#d7dce8"],
-    "choreography": [
-      { "section": "top", "position": [1.6, 0.1, 0], "scale": 1.25, "morph": 0.15, "camera": [0, 0, 7] },
-      { "section": "work", "position": [0.2, 0, -0.6], "scale": 1.55, "morph": 0.24, "camera": [1.6, 0.7, 6.8] },
-      { "section": "approach", "position": [-2.35, 0.1, 0], "scale": 1.05, "morph": 0.32, "camera": [-1.1, -0.5, 7] },
-      { "section": "about", "position": [2.0, -0.1, 0], "scale": 1.15, "morph": 0.2, "camera": [0.7, 0.9, 7.4] },
-      { "section": "contact", "position": [0, -0.2, 0.4], "scale": 1.7, "morph": 0.12, "camera": [0, -0.7, 6.4] }
-    ]
-  },
-
+    {
+      "label": "Approach",
+      "href": "#approach"
+    },
+    {
+      "label": "About",
+      "href": "#about"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact"
+    }
+  ],
   "hero": {
     "support": "I turn consumer research into a clear brief, a clear brief into a campaign, and a campaign into something a client can approve.",
-    "primaryCta": { "label": "See selected work", "href": "#work" },
+    "primaryCta": {
+      "label": "See selected work",
+      "href": "#work"
+    },
     "secondaryCta": "Email Aidan"
   },
-
   "work": {
     "title": "Selected work",
     "intro": "Six projects, each taken from research and brief through to finished creative. They are spec and class work unless noted. Open one for the summary, gallery, and full deck.",
     "openLabel": "Open case study"
   },
-
   "approach": {
     "title": "How I run the work",
     "intro": "Account and brand management is mostly making sure the right people are solving the right problem at the right time. These are the habits I bring to it.",
@@ -64,7 +57,6 @@
       }
     ]
   },
-
   "about": {
     "title": "About",
     "toolkitLabel": "What I work with",
@@ -81,14 +73,12 @@
       "Canva"
     ]
   },
-
   "contact": {
     "title": "Hiring for an account, brand, or project role?",
     "body": "Email is the fastest way to reach me.",
     "copyLabel": "Copy email address",
     "copiedLabel": "Email address copied"
   },
-
   "drawer": {
     "closeLabel": "Close",
     "summaryTitle": "Executive summary",
@@ -106,6 +96,17 @@
     "yearLabel": "Year",
     "metricLabel": "Featured metric"
   },
-
-  "footer": "Spec and class work, shown for portfolio purposes. Brand names and logos belong to their owners."
+  "footer": "Spec and class work, shown for portfolio purposes. Brand names and logos belong to their owners.",
+  "colorTester": {
+    "swatches": [
+      "#a9c1ff",
+      "#c9b8ff",
+      "#ffb9a3",
+      "#a8e6cf",
+      "#ffd98a",
+      "#f4a6c8",
+      "#8fd3f4",
+      "#d7dce8"
+    ]
+  }
 }

@@ -8,7 +8,6 @@ const meta = JSON.parse(readFileSync('./src/content/site-copy.json', 'utf8')).me
 
 export default defineConfig({
   base: './', // relative paths so the build works from any GitHub Pages sub-path
-  build: { chunkSizeWarningLimit: 1200 }, // three.js is one large, lazily loaded chunk
   plugins: [
     react(),
     tailwindcss(),

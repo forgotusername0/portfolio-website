@@ -1,18 +1,40 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Lenis from 'lenis'
 import { settings, type Project } from './content'
 import { Nav, Hero, Work, Approach, About, Contact } from './sections'
 import Drawer from './Drawer'
 import ColorPill from './ColorPill'
+import Cursor from './Cursor'
 
-// three.js is most of the bundle; load it after the page content has painted.
-const Scene = lazy(() => import('./Scene'))
+const GLOW_KEY = 'glow'
+const savedGlow = () => {
+  try {
+    const v = localStorage.getItem(GLOW_KEY)
+    return v === null ? settings.glowDefault : v === '1'
+  } catch {
+    return settings.glowDefault
+  }
+}
 
 export default function App() {
-  const [colors, setColors] = useState(settings.sphere.colors)
+  const [accent, setAccent] = useState(settings.accent)
+  const [glow, setGlow] = useState(savedGlow)
   const [project, setProject] = useState<Project | null>(null) // stays set while the drawer slides shut
   const [open, setOpen] = useState(false)
   const lenis = useRef<Lenis | null>(null)
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--accent', accent)
+  }, [accent])
+
+  const toggleGlow = (on: boolean) => {
+    setGlow(on)
+    try {
+      localStorage.setItem(GLOW_KEY, on ? '1' : '0')
+    } catch {
+      /* private mode: the choice just will not persist */
+    }
+  }
 
   useEffect(() => {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -28,10 +50,7 @@ export default function App() {
 
   return (
     <>
-      <Suspense fallback={null}>
-        <Scene colors={colors} drawerOpen={open} />
-      </Suspense>
-      <div className="relative">
+      <div className="relative z-10">
         <Nav />
         <main>
           <Hero />
@@ -47,7 +66,8 @@ export default function App() {
         </main>
       </div>
       <Drawer project={project} open={open} onClose={() => setOpen(false)} />
-      {settings.showColorTester && <ColorPill colors={colors} onChange={setColors} />}
+      <Cursor accent={accent} glow={glow} modalOpen={open} />
+      {settings.showColorTester && <ColorPill accent={accent} onAccent={setAccent} glow={glow} onGlow={toggleGlow} />}
     </>
   )
 }

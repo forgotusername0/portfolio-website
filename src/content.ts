@@ -1,5 +1,5 @@
 import site from './content/site-settings.json' // edited in Pages CMS
-import copy from './content/site-copy.json' // section copy, labels and sphere scroll poses
+import copy from './content/site-copy.json' // section copy and labels
 import projectsJson from './content/projects.json' // edited in Pages CMS
 
 const lines = (text: string, separator: RegExp) =>
@@ -14,14 +14,14 @@ export const settings = {
   email: site.email,
   resumeUrl: site.resume ?? '',
   showColorTester: site.showColorTester,
-  sphere: { ...copy.sphere, colors: site.sphere },
+  accent: site.accent,
+  glowDefault: site.glow,
   hero: { ...copy.hero, headline: lines(site.heroHeadline, /\n/), statement: site.heroStatement },
   about: { ...copy.about, paragraphs: lines(site.bio, /\n\s*\n/) },
 }
 
 export type Project = (typeof projectsJson)[number]
 export const projects: Project[] = projectsJson
-export type SphereColors = typeof site.sphere
 
 /** Resolves a path from the JSON files: full URLs pass through; "/uploads/x" and "uploads/x" both resolve against the site root. */
 export const asset = (path: string) =>

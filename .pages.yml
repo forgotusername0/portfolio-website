@@ -15,7 +15,7 @@ media:
 
 content:
   - name: site
-    label: Site Settings & 3D Sphere Color
+    label: Site Settings & Accent Color
     type: file
     path: src/content/site-settings.json
     format: json
@@ -40,36 +40,18 @@ content:
         label: Bio
         description: Shown in the About section. Leave a blank line between paragraphs.
         type: text
-      - name: sphere
-        label: 3D Sphere Colors
-        type: object
-        fields:
-          - name: tint
-            label: 3D Sphere Hex Color
-            description: 'Six-digit hex code, for example #a9c1ff. Preview colors with the swatch pill on the live site, then paste the hex here.'
-            type: string
-            required: true
-            pattern:
-              regex: '^#[0-9a-fA-F]{6}$'
-              message: 'Use a six-digit hex code such as #a9c1ff.'
-          - name: glow
-            label: Edge glow hex color
-            type: string
-            pattern:
-              regex: '^#[0-9a-fA-F]{6}$'
-              message: 'Use a six-digit hex code such as #7c8cff.'
-          - name: lightA
-            label: Warm light hex color
-            type: string
-            pattern:
-              regex: '^#[0-9a-fA-F]{6}$'
-              message: 'Use a six-digit hex code such as #ffc4a8.'
-          - name: lightB
-            label: Cool light hex color
-            type: string
-            pattern:
-              regex: '^#[0-9a-fA-F]{6}$'
-              message: 'Use a six-digit hex code such as #b5f0e0.'
+      - name: accent
+        label: Accent Hex Color
+        description: 'Six-digit hex code, for example #a9c1ff. Tints the cursor, mouse trail and page glow. Preview colors with the swatch pill on the live site, then paste the hex here.'
+        type: string
+        required: true
+        pattern:
+          regex: '^#[0-9a-fA-F]{6}$'
+          message: 'Use a six-digit hex code such as #a9c1ff.'
+      - name: glow
+        label: Cursor glow on by default
+        description: Visitors can still switch it off with the Glow toggle.
+        type: boolean
       - name: showColorTester
         label: Show the color tester pill on the live site
         type: boolean
