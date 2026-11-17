@@ -10,7 +10,7 @@ export default function GlowToggle({ glow, onGlow }: Props) {
       onClick={() => onGlow(!glow)}
       className="glass fixed right-4 bottom-4 z-30 hidden cursor-pointer rounded-full px-3 py-1.5 text-xs font-medium text-ink/70 transition-colors hover:text-ink [@media(hover:hover)_and_(pointer:fine)]:block"
     >
-      Trail: {glow ? 'On' : 'Off'}
+      Glow: {glow ? 'On' : 'Off'}
     </button>
   )
 }

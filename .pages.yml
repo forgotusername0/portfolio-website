@@ -67,10 +67,10 @@ content:
           message: 'Use a six-digit hex code such as #a9c1ff.'
       - name: glow
         label: Mouse trail on by default
-        description: Visitors can still switch it off with the Trail toggle.
+        description: Visitors can still switch it off with the Glow toggle.
         type: boolean
       - name: showColorTester
-        label: Show the Trail on/off toggle on the live site
+        label: Show the Glow on/off toggle on the live site
         type: boolean
       - name: resume
         label: Resume PDF
