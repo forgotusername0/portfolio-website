@@ -8,17 +8,17 @@ import { useEffect, useRef } from 'react'
 const CONFIG = {
   SIM_RESOLUTION: 128,
   DYE_RESOLUTION: 512,
-  DENSITY_DISSIPATION: 1.6, // dye lingers ~1.5–2s
+  DENSITY_DISSIPATION: 3.2, // dye evaporates in ~0.8s
   VELOCITY_DISSIPATION: 0.35,
   PRESSURE: 0.8,
   PRESSURE_ITERATIONS: 20,
-  CURL: 28,
-  SPLAT_RADIUS: 0.32,
-  SPLAT_FORCE: 5500,
+  CURL: 20,
+  SPLAT_RADIUS: 0.13,
+  SPLAT_FORCE: 3200,
   SATURATION: 0.85,
   LIGHTNESS: 0.62,
-  DYE_AMOUNT: 0.11, // how much colour each splat adds
-  MAX_ALPHA: 0.55, // keeps the thickest cloud translucent
+  DYE_AMOUNT: 0.32, // how much colour each splat adds
+  MAX_ALPHA: 1, // overall softness comes from the canvas CSS opacity
   IDLE_MS: 4000, // stop the loop this long after the last mouse move (the dye is gone well before)
 }
 
@@ -425,5 +425,5 @@ export default function FluidCursorCanvas({ on }: { on: boolean }) {
     }
   }, [])
 
-  return <canvas ref={canvas} aria-hidden="true" className="fluid-canvas" style={{ opacity: on ? 1 : 0 }} />
+  return <canvas ref={canvas} aria-hidden="true" className="fluid-canvas" style={{ opacity: on ? 0.38 : 0 }} />
 }

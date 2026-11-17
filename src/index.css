@@ -185,6 +185,7 @@ section[id] {
   height: 100vh;
   pointer-events: none;
   z-index: 9997;
+  mix-blend-mode: multiply;
   transition: opacity 0.45s;
 }
 .cursor-dot,
