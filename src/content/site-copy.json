@@ -23,12 +23,21 @@
     }
   ],
   "hero": {
-    "support": "I turn consumer research into a clear brief, a clear brief into a campaign, and a campaign into something a client can approve.",
+    "eyebrow": "Account • Brand • Project Management",
     "primaryCta": {
-      "label": "See selected work",
+      "label": "View Selected Work",
       "href": "#work"
     },
-    "secondaryCta": "Email Aidan"
+    "secondaryCta": {
+      "label": "Get in Touch",
+      "href": "#contact"
+    },
+    "snapshot": {
+      "title": "Executive Snapshot",
+      "location": "Based in",
+      "education": "Education",
+      "disciplines": "Core disciplines"
+    }
   },
   "work": {
     "title": "Selected work",
@@ -96,17 +105,5 @@
     "yearLabel": "Year",
     "metricLabel": "Featured metric"
   },
-  "footer": "Spec and class work, shown for portfolio purposes. Brand names and logos belong to their owners.",
-  "colorTester": {
-    "swatches": [
-      "#a9c1ff",
-      "#c9b8ff",
-      "#ffb9a3",
-      "#a8e6cf",
-      "#ffd98a",
-      "#f4a6c8",
-      "#8fd3f4",
-      "#d7dce8"
-    ]
-  }
+  "footer": "Spec and class work, shown for portfolio purposes. Brand names and logos belong to their owners."
 }

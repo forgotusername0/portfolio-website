@@ -3,7 +3,7 @@ import Lenis from 'lenis'
 import { settings, type Project } from './content'
 import { Nav, Hero, Work, Approach, About, Contact } from './sections'
 import Drawer from './Drawer'
-import ColorPill from './ColorPill'
+import GlowToggle from './GlowToggle'
 import Cursor from './Cursor'
 
 const GLOW_KEY = 'glow'
@@ -17,15 +17,14 @@ const savedGlow = () => {
 }
 
 export default function App() {
-  const [accent, setAccent] = useState(settings.accent)
   const [glow, setGlow] = useState(savedGlow)
   const [project, setProject] = useState<Project | null>(null) // stays set while the drawer slides shut
   const [open, setOpen] = useState(false)
   const lenis = useRef<Lenis | null>(null)
 
   useEffect(() => {
-    document.documentElement.style.setProperty('--accent', accent)
-  }, [accent])
+    document.documentElement.style.setProperty('--accent', settings.accent)
+  }, [])
 
   const toggleGlow = (on: boolean) => {
     setGlow(on)
@@ -66,8 +65,8 @@ export default function App() {
         </main>
       </div>
       <Drawer project={project} open={open} onClose={() => setOpen(false)} />
-      <Cursor accent={accent} glow={glow} modalOpen={open} />
-      {settings.showColorTester && <ColorPill accent={accent} onAccent={setAccent} glow={glow} onGlow={toggleGlow} />}
+      <Cursor glow={glow} modalOpen={open} />
+      {settings.showColorTester && <GlowToggle glow={glow} onGlow={toggleGlow} />}
     </>
   )
 }

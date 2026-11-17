@@ -36,24 +36,41 @@ content:
       - name: heroStatement
         label: Hero positioning statement
         type: text
+      - name: snapshot
+        label: Executive Snapshot card
+        type: object
+        fields:
+          - name: location
+            label: Location
+            type: string
+          - name: education
+            label: Education
+            type: string
+          - name: disciplines
+            label: Core disciplines
+            type: string
+            list: true
+          - name: status
+            label: Availability status
+            type: string
       - name: bio
         label: Bio
         description: Shown in the About section. Leave a blank line between paragraphs.
         type: text
       - name: accent
         label: Accent Hex Color
-        description: 'Six-digit hex code, for example #a9c1ff. Tints the cursor, mouse trail and page glow. Preview colors with the swatch pill on the live site, then paste the hex here.'
+        description: 'Six-digit hex code, for example #a9c1ff. Tints the soft glow behind the page.'
         type: string
         required: true
         pattern:
           regex: '^#[0-9a-fA-F]{6}$'
           message: 'Use a six-digit hex code such as #a9c1ff.'
       - name: glow
-        label: Cursor glow on by default
-        description: Visitors can still switch it off with the Glow toggle.
+        label: Mouse trail on by default
+        description: Visitors can still switch it off with the Trail toggle.
         type: boolean
       - name: showColorTester
-        label: Show the color tester pill on the live site
+        label: Show the Trail on/off toggle on the live site
         type: boolean
       - name: resume
         label: Resume PDF

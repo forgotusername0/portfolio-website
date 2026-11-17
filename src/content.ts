@@ -15,6 +15,7 @@ export const settings = {
   resumeUrl: site.resume ?? '',
   showColorTester: site.showColorTester,
   accent: site.accent,
+  snapshot: site.snapshot,
   glowDefault: site.glow,
   hero: { ...copy.hero, headline: lines(site.heroHeadline, /\n/), statement: site.heroStatement },
   about: { ...copy.about, paragraphs: lines(site.bio, /\n\s*\n/) },

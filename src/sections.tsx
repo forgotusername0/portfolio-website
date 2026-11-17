@@ -46,32 +46,74 @@ export function Nav() {
 
 export function Hero() {
   const { hero } = settings
+  const snap = settings.snapshot
+  const step = (i: number) => ({ '--i': i }) as CSSProperties
   return (
-    <section id="top" className={`${shell} flex min-h-svh flex-col justify-end pt-28 pb-10 sm:pb-14`}>
-      <h1 className="display text-[clamp(2.05rem,7.3vw,7.25rem)]">
-        {hero.headline.map((line, i) => (
-          <span key={line} className="rise block" style={{ '--i': i } as CSSProperties}>
-            {line}
-          </span>
-        ))}
-      </h1>
-      <div
-        className="rise mt-8 grid gap-6 sm:mt-10 md:grid-cols-[minmax(0,34rem)_auto] md:items-end md:justify-between"
-        style={{ '--i': hero.headline.length + 1 } as CSSProperties}
-      >
-        <div>
-          <p className="prose-serif text-[1.3125rem] leading-snug sm:text-2xl">{hero.statement}</p>
-          <p className="prose-serif mt-3 text-mist">{hero.support}</p>
+    <section id="top" className={`${shell} pt-[7.5rem] pb-10 lg:pb-14`}>
+      <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
+        <div className="lg:col-span-7">
+          <p className="rise text-sm font-medium tracking-[0.08em] text-mist uppercase" style={step(0)}>
+            {hero.eyebrow}
+          </p>
+          <h1 className="display mt-5 text-[clamp(2.6rem,6.8vw,6.25rem)]">
+            {hero.headline.map((line, i) => (
+              <span key={line} className="rise block" style={step(i + 1)}>
+                {line}
+              </span>
+            ))}
+          </h1>
+          <p className="prose-serif rise mt-7 max-w-[34rem] text-[1.3125rem] leading-snug sm:text-2xl" style={step(hero.headline.length + 1)}>
+            {hero.statement}
+          </p>
+          <div className="rise mt-8 flex flex-wrap gap-3" style={step(hero.headline.length + 2)}>
+            <a href={hero.primaryCta.href} className="btn btn-solid">
+              {hero.primaryCta.label}
+            </a>
+            <a href={hero.secondaryCta.href} className="btn btn-glass glass">
+              {hero.secondaryCta.label}
+            </a>
+            <ResumeLink />
+          </div>
         </div>
-        <div className="flex flex-wrap gap-3">
-          <a href={hero.primaryCta.href} className="btn btn-solid">
-            {hero.primaryCta.label}
-          </a>
-          <a href={`mailto:${settings.email}`} className="btn btn-glass glass">
-            {hero.secondaryCta}
-          </a>
-          <ResumeLink />
-        </div>
+
+        <aside
+          aria-labelledby="snapshot-title"
+          className="glass rise rounded-[1.75rem] p-6 sm:p-7 lg:col-span-5 lg:self-end"
+          style={step(hero.headline.length + 2)}
+        >
+          <h2 id="snapshot-title" className="text-lg font-semibold [font-stretch:112%]">
+            {hero.snapshot.title}
+          </h2>
+          <dl className="mt-5 space-y-4">
+            <div>
+              <dt className="label">{hero.snapshot.location}</dt>
+              <dd className="mt-0.5 font-medium">{snap.location}</dd>
+            </div>
+            <div>
+              <dt className="label">{hero.snapshot.education}</dt>
+              <dd className="mt-0.5 font-medium">{snap.education}</dd>
+            </div>
+            <div>
+              <dt className="label">{hero.snapshot.disciplines}</dt>
+              <dd>
+                <ul className="mt-1.5 flex flex-wrap gap-2">
+                  {snap.disciplines.map((d) => (
+                    <li key={d} className="rounded-full border border-line bg-white/60 px-3 py-1 text-sm font-medium">
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          </dl>
+          <p className="mt-6 flex items-center gap-2.5 border-t border-line pt-4 text-[0.9375rem] font-medium">
+            <span className="relative flex size-2.5" aria-hidden="true">
+              <span className="absolute inset-0 animate-ping rounded-full bg-emerald-500 opacity-60 motion-reduce:animate-none" />
+              <span className="relative size-2.5 rounded-full bg-emerald-500" />
+            </span>
+            {snap.status}
+          </p>
+        </aside>
       </div>
     </section>
   )
